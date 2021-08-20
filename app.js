@@ -1,15 +1,25 @@
 const Utils = require('./lib/Utils');
 const WeatherAPI = require('./lib/WeatherAPI');
+const DB = require('./db/model');
+const LoggerAdapter = require('./lib/LoggerAdapter');
+const WebServer = require('./lib/WebServer');
 
 const main = async () => {
   const config = await Utils.readConfig();
 
   const weatherAPI = new WeatherAPI();
   weatherAPI.setAuthorization(config.base.weatherToken);
-  const res = await weatherAPI.get({
-    locationName: '新北市,臺北市',
+
+  const logger = new LoggerAdapter();
+  const dbInstance = new DB({ dbConfig: config.database, logger });
+
+  const db = await dbInstance.initialORM();
+
+  const web = new WebServer({
+    config, logger, db, weatherAPI,
   });
-  console.log(JSON.stringify(res));
+
+  await web.start();
 };
 
 main();

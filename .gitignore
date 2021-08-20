@@ -117,4 +117,6 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
+env.js
 config.toml
+docker/dbData

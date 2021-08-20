@@ -1,3 +1,18 @@
 [base]
 weatherToken = ""
 
+[database]
+protocol = "mysql"
+host = "127.0.0.1"
+port = "3306"
+user = ""
+password = ""
+dbName = ""
+logging = false
+autoReconnect = true
+ormEnable = true
+  [database.dialectOptions]
+  connectTimeout = 3000
+
+  [database.pool]
+  max = 100

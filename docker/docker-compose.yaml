@@ -1,0 +1,29 @@
+version: "3.0"
+
+services:
+  # weather-crawler:
+  #   container_name: weather-crawler
+  #   depends_on:
+  #     - weather-db
+  #   build:
+  #     context: ../
+  #     dockerfile: docker/Dockerfile
+  #   image: weather-crawler:latest
+  #   hostname: weather-crawler
+  #   ports:
+  #     - "80:80"
+  #   restart: always
+  weather-db:
+    container_name: weather-db
+    image: mysql:8.0.26
+    volumes:
+      - ./dbData:/var/lib/mysql
+      - ./init-database.sh:/docker-entrypoint-initdb.d/init-database.sh
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
+      MYSQL_DATABASE: "${MYSQL_DATABASE}"
+      MYSQL_USER: "${MYSQL_USER}"
+      MYSQL_PASSWORD: "${MYSQL_PASSWORD}"
+    restart: always
