@@ -1,4 +1,6 @@
 [base]
+# debug, info, error, and fatal
+logLevel = 'debug'
 weatherToken = ""
 
 [database]
