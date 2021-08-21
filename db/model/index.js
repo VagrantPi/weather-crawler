@@ -61,16 +61,16 @@ class DBAdapter {
       return sequelize.sync({ logging: false })
         .then(() => {
           // eslint-disable-next-line no-console
-          this.logger.log('\x1b[1m\x1b[32mDB   \x1b[0m\x1b[21m connect success');
+          this.logger.log('\x1b[1m\x1b[32mDB        \x1b[0m\x1b[21m connect success');
           return db;
         })
         .catch((e) => {
-          this.logger.error('\x1b[1m\x1b[31mDB   \x1b[0m\x1b[21m \x1b[1m\x1b[31mconnect fails\x1b[0m\x1b[21m');
+          this.logger.error('\x1b[1m\x1b[31mDB        \x1b[0m\x1b[21m \x1b[1m\x1b[31mconnect fails\x1b[0m\x1b[21m');
           throw e;
         });
     } catch (e) {
       // eslint-disable-next-line no-console
-      this.logger.error('\x1b[1m\x1b[31mDB   \x1b[0m\x1b[21m \x1b[1m\x1b[31mconnect fails\x1b[0m\x1b[21m');
+      this.logger.error('\x1b[1m\x1b[31mDB        \x1b[0m\x1b[21m \x1b[1m\x1b[31mconnect fails\x1b[0m\x1b[21m');
       throw e;
     }
   }
