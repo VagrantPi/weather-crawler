@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "lint": "eslint lib/*.js"
+    "lint": "eslint lib/*.js",
+    "migrateDB": "./node_modules/.bin/sequelize db:migrate --env development --config ./env.js --migrations-path ./db/migrations --models-path ./db/models"
   },
   "keywords": [],
   "author": "",
@@ -27,6 +28,7 @@
     "eslint-config-airbnb": "^18.2.1",
     "eslint-plugin-import": "^2.24.1",
     "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-react": "^7.24.0"
+    "eslint-plugin-react": "^7.24.0",
+    "sequelize-cli": "^6.2.0"
   }
 }

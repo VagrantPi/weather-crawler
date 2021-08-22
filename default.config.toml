@@ -9,11 +9,11 @@ expiresIn = 604800 # 7 * 24 * 60 * 60 (expires in 7 Day)
 
 [database]
 protocol = "mysql"
-host = "127.0.0.1"
+host = "weather-db"
 port = "3306"
-user = ""
-password = ""
-dbName = ""
+user = "test"
+password = "test"
+dbName = "weather-crawler-test"
 logging = false
 autoReconnect = true
 ormEnable = true
