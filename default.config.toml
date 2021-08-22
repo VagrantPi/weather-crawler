@@ -3,6 +3,10 @@
 logLevel = 'debug'
 weatherToken = ""
 
+[jwt]
+secret = ""
+expiresIn = 604800 # 7 * 24 * 60 * 60 (expires in 7 Day)
+
 [database]
 protocol = "mysql"
 host = "127.0.0.1"

@@ -9,11 +9,12 @@ const main = async () => {
 
   const weatherAPI = new WeatherAPI();
   weatherAPI.setAuthorization(config.base.weatherToken);
+
   const { logLevel } = config.base;
   const logger = new LoggerAdapter();
   logger.setLogLevel(logLevel);
-  const dbInstance = new DB({ dbConfig: config.database, logger });
 
+  const dbInstance = new DB({ dbConfig: config.database, logger });
   const db = await dbInstance.initialORM();
 
   const web = new WebServer({
